@@ -1,11 +1,9 @@
-import logo from './logo.svg'
-import Header from './Components/Header'
+
 import Homepage from './Pages/Homepage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Storespage from './Pages/Storespage';
 import Singlestorepage from './Pages/Singlestorepage';
 import Singleproductpage from './Pages/Singleproductpage';
-import Register from './Components/Register';
 
 function App() {
   return (
