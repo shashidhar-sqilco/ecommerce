@@ -33,7 +33,7 @@ function Header() {
         <div className='shadow'>
           <div className='flex justify-between items-center px-40 h-28 '>
             <div className='flex items-center gap-6 '>
-              <a href='#'>
+              <a href='/'>
                 <img className='w-14' src={logo} alt='Logo' />
               </a>
               <a
@@ -43,13 +43,13 @@ function Header() {
                 Home
               </a>
               <a
-                href='#'
+                href='/'
                 className='hover:underline focus:underline focus:font-normal font-thin sticky px-2 hover:scale-110'
               >
                 Catalogue
               </a>
               <a
-                href='#'
+                href='/'
                 className='hover:underline focus:underline focus:font-normal font-thin sticky px-2 hover:scale-110'
               >
                 Contact
