@@ -6,6 +6,7 @@ function Productcard() {
     <div className='w-60 hover:cursor-pointer '>
       <div className='w-60 h-[40vh] mt-8'>
         <img
+          alt='product'
           src={product}
           className='w-full h-full object-cover hover:shadow-lg hover:scale-105 transition-transform duration-500 hover:rotate-1 ease-in-out'
         />
