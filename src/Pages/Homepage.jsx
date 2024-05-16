@@ -2,6 +2,8 @@ import React from 'react'
 import Header from '../Components/Header'
 import mall from '../Assets/mall.jpg'
 import OfferBarTop from '../Components/OfferBarTop'
+import Register from '../Components/Register'
+import Login from '../Components/Login'
 
 function Homepage() {
   return (

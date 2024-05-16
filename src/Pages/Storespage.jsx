@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Storecard from '../Components/Storecard'
 import Header from '../Components/Header'
 
 function Storespage() {
+  const [data, setData] = useState([])
+
+  useEffect(() => {
+    async function fetchStores() {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/Boutique/getBoutique`,
+        )
+        console.log('res', response.data)
+        setData(response.data)
+      } catch (error) {
+        console.error('Error fetching stores:', error)
+      }
+    }
+    fetchStores()
+  }, [])
   return (
     <div>
       <Header />

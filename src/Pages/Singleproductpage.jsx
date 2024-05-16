@@ -4,6 +4,7 @@ import product from '../Assets/product.jpg'
 import { useState } from 'react'
 import Productcard from '../Components/Productcard'
 import OfferBarTop from '../Components/OfferBarTop'
+import QuantityButtonComponent from '../Components/QuantityButtonComponent'
 
 function Singleproductpage() {
   let [quantity, setQuantity] = useState(0)
@@ -47,61 +48,7 @@ function Singleproductpage() {
             pariatur.
           </p>
           <p className='mt-4 text-gray-600'>Quantité</p>
-          <div className='relative flex items-center max-w-[8rem] border border-gray-600'>
-            <button
-              type='button'
-              id='decrement-button'
-              data-input-counter-decrement='quantity-input'
-              class=' dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200  p-3 h-11 '
-              onClick={decrement}
-            >
-              <svg
-                class='w-3 h-3 text-gray-900 dark:text-white'
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 18 2'
-              >
-                <path
-                  stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M1 1h16'
-                />
-              </svg>
-            </button>
-            <label
-              id='quantity-input'
-              aria-describedby='helper-text-explanation'
-              class='h-11 text-center text-gray-900 text-sm  block w-full py-2.5 '
-            >
-              {quantity}
-            </label>
-            <button
-              type='button'
-              id='increment-button'
-              data-input-counter-increment='quantity-input'
-              class='dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200  p-3 h-11'
-              onClick={increment}
-            >
-              <svg
-                class='w-3 h-3 text-gray-900 dark:text-white'
-                aria-hidden='true'
-                xmlns='http://www.w3.org/2000/svg'
-                fill='none'
-                viewBox='0 0 18 18'
-              >
-                <path
-                  stroke='currentColor'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
-                  d='M9 1v16M1 9h16'
-                />
-              </svg>
-            </button>
-          </div>
+          <QuantityButtonComponent />
 
           <button className=' mt-4 w-96 h-12 border border-black hover:border-2'>
             Ajouter au panier
