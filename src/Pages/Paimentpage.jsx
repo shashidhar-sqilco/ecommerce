@@ -4,16 +4,16 @@ import Header from '../Components/Header'
 function Paimentpage() {
   return (
     <div>
-      <Header />
-      <div className='flex justify-center mx-56 mt-4 justify-between'>
+      
+      <div className='flex justify-center justify-between mx-56 mt-4'>
         <div className='mt-4'>
-          <div className=' text-xl font-semibold'>Contact</div>
+          <div className='text-xl font-semibold '>Contact</div>
           <input
             type='text'
             placeholder='Email ou numero de portable'
             className='mt-2 border border-2 rounded border-gray-500 h-12 w-[62vh] p-4'
           ></input>
-          <div className=' text-xl font-semibold mt-4'>Livraison</div>
+          <div className='mt-4 text-xl font-semibold '>Livraison</div>
           <input
             type='text'
             placeholder='Pays/Region'
@@ -42,7 +42,7 @@ function Paimentpage() {
               placeholder='Adresse'
               className='mt-2 border border-2 rounded border-gray-500 h-12 w-[62vh] p-4'
             ></input>
-            <div className='grid grid-cols-2 mt-4 gap-4'>
+            <div className='grid grid-cols-2 gap-4 mt-4'>
               <input
                 type='text'
                 placeholder='Code postal'
@@ -66,7 +66,7 @@ function Paimentpage() {
           </div>
         </div>
 
-        <div>bbaaaaaaaaaab</div>
+        <div className=''></div>
       </div>
     </div>
   )

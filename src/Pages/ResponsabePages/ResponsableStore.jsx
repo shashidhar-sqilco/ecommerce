@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import ResponsableHeader from '../../Components/ResponsableComponents/ResponsableHeader'
 import Header from '../../Components/Header'
-import AddPfroductForm from '../../Components/ResponsableComponents/AddPfroductForm'
+import AddPfroductForm from '../../Components/ResponsableComponents/AddProductForm'
 
 function ResponsableStore() {
   const [addShown, setShown] = useState(false)

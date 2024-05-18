@@ -1,52 +1,53 @@
-import React, { useEffect, useState } from 'react'
-import ResponsableHeader from '../../Components/ResponsableComponents/ResponsableHeader'
-import Header from '../../Components/Header'
-import ProfileDetails from '../../Components/ResponsableComponents/ProfileDetails'
-import BoutiqueDetails from '../../Components/ResponsableComponents/BoutiqueDetails'
-import AddPfroductForm from '../../Components/ResponsableComponents/AddPfroductForm'
-import GererUtilisateur from './GererUtilisateur'
-import Gererboutiques from './Gererboutiques'
+import React, { useEffect, useState } from 'react';
+import ResponsableHeader from '../../Components/ResponsableComponents/ResponsableHeader';
+import Header from '../../Components/Header';
+import ProfileDetails from '../../Components/ResponsableComponents/ProfileDetails';
+import BoutiqueDetails from '../../Components/ResponsableComponents/BoutiqueDetails';
+import AddProductForm from '../../Components/ResponsableComponents/AddProductForm';
+import GererUtilisateur from './GererUtilisateur';
+import Gererboutiques from './Gererboutiques';
 
 function ResponsableDashboard() {
-  const [userRole, setUserRole] = useState('')
-  const [name, setName] = useState()
-  const [userName, setUserName] = useState()
-  const [Email, setEmail] = useState()
+  const [userRole, setUserRole] = useState('');
+  const [name, setName] = useState();
+  const [userName, setUserName] = useState();
+  const [Email, setEmail] = useState();
 
-  const [rightDisplay, setDisplay] = useState('profiledet')
-  const [user, setUserData] = useState({})
+  const [rightDisplay, setDisplay] = useState('profiledet');
+  const [user, setUserData] = useState({});
   const toggleSearchBox = () => {
-    setShowbox(!showSearchBox)
-  }
+    setShowbox(!showSearchBox);
+  };
 
   useEffect(() => {
+    console.log('ResponsableDashboard component rendered');
     function checkRole() {
-      const userDataString = localStorage.getItem('userData')
+      const userDataString = localStorage.getItem('userData');
       if (userDataString) {
-        const userData = JSON.parse(userDataString)
-        setName(userData.name)
-        setUserName(userData.lastName)
-        setEmail(userData.email)
-        setUserData(userData)
-        console.log(userData)
+        const userData = JSON.parse(userDataString);
+        setName(userData.name);
+        setUserName(userData.lastName);
+        setEmail(userData.email);
+        setUserData(userData);
+        console.log(userData);
         if (userData.role === 'User') {
-          setUserRole('User')
+          setUserRole('User');
         } else if (userData.role === 'Admin') {
-          setUserRole('Admin')
+          setUserRole('Admin');
         } else {
-          setUserRole('Responsable')
+          setUserRole('Responsable');
         }
       } else {
-        console.error('User data not found in local storage')
+        console.error('User data not found in local storage');
       }
     }
-    checkRole()
-  }, [])
+    checkRole();
+  }, []);
 
   return (
     <div>
-      <Header />
-      <div className='grid grid-cols-3 mx-60 mt-8'>
+      
+      <div className='grid grid-cols-3 mt-8 mx-60'>
         <div className='flex flex-col'>
           <h1 className='text-2xl font-semibold'>
             {name} {userName}
@@ -54,7 +55,7 @@ function ResponsableDashboard() {
           <h1>{Email}</h1>
           <div className='shadow-lg w-60'>
             <div
-              className='mt-4 hover:cursor-pointer bg-gray-300 text-center py-2 hover:bg-gray-400'
+              className='py-2 mt-4 text-center bg-gray-300 hover:cursor-pointer hover:bg-gray-400'
               onClick={() => setDisplay('profiledet')}
             >
               Detail du compte
@@ -64,7 +65,7 @@ function ResponsableDashboard() {
               <div>
                 <hr />
                 <div
-                  className=' hover:cursor-pointer bg-gray-300 text-center py-2 hover:bg-gray-400'
+                  className='py-2 text-center bg-gray-300 hover:cursor-pointer hover:bg-gray-400'
                   onClick={() => setDisplay('boutiquedet')}
                 >
                   Detail du Boutique
@@ -75,7 +76,7 @@ function ResponsableDashboard() {
               <div>
                 <hr />
                 <div
-                  className=' hover:cursor-pointer bg-gray-300 text-center py-2 hover:bg-gray-400'
+                  className='py-2 text-center bg-gray-300 hover:cursor-pointer hover:bg-gray-400'
                   onClick={() => setDisplay('addprod')}
                 >
                   Ajouter un produit
@@ -85,7 +86,7 @@ function ResponsableDashboard() {
             <hr />
             {userRole == 'Admin' && (
               <div
-                className=' hover:cursor-pointer bg-gray-300 text-center py-2 hover:bg-gray-400'
+                className='py-2 text-center bg-gray-300 hover:cursor-pointer hover:bg-gray-400'
                 onClick={() => setDisplay('gererutil')}
               >
                 Gerer les utilisateurs
@@ -95,7 +96,7 @@ function ResponsableDashboard() {
               <div>
                 <hr />
                 <div
-                  className=' hover:cursor-pointer bg-gray-300 text-center py-2 hover:bg-gray-400'
+                  className='py-2 text-center bg-gray-300 hover:cursor-pointer hover:bg-gray-400'
                   onClick={() => setDisplay('gereboutique')}
                 >
                   Gerer les boutiques
@@ -105,7 +106,7 @@ function ResponsableDashboard() {
           </div>
         </div>
         <div className='col-span-2'>
-          {rightDisplay == 'addprod' && <AddPfroductForm />}
+          {rightDisplay == 'addprod' && <AddProductForm />}
           {rightDisplay == 'profiledet' && <ProfileDetails value={user} />}
           {rightDisplay == 'boutiquedet' && <BoutiqueDetails />}
           {rightDisplay == 'gereboutique' && <Gererboutiques />}
@@ -113,7 +114,7 @@ function ResponsableDashboard() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default ResponsableDashboard
+export default ResponsableDashboard;

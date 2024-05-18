@@ -1,20 +1,26 @@
 import React from 'react'
 import product from '../Assets/product.jpg'
+import { useNavigate } from 'react-router-dom'
 
 function Productcard() {
+  const navigate = useNavigate()
+
+  const handleClick = () => {
+    navigate('/singleproduct')
+  }
   return (
-    <div className='w-60 hover:cursor-pointer '>
+    <div className='w-60 hover:cursor-pointer ' onClick={handleClick}>
       <div className='w-60 h-[40vh] mt-8'>
         <img
           alt='product'
           src={product}
-          className='w-full h-full object-cover hover:shadow-lg hover:scale-105 transition-transform duration-500 hover:rotate-1 ease-in-out'
+          className='object-cover w-full h-full transition-transform duration-500 ease-in-out hover:shadow-lg hover:scale-105 hover:rotate-1'
         />
       </div>
-      <p className='text-gray-800 mt-2 uppercase'>phone case</p>
+      <p className='mt-2 text-gray-800 uppercase'>phone case</p>
       <div className='flex'>
-        <p className='text-gray-700 mt-2'>93.000</p>
-        <p className='text-gray-700 mt-2 uppercase ml-4'>dt</p>
+        <p className='mt-2 text-gray-700'>93.000</p>
+        <p className='mt-2 ml-4 text-gray-700 uppercase'>dt</p>
       </div>
     </div>
   )

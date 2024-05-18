@@ -4,6 +4,7 @@ import searchcion from '../Assets/search-icon.png'
 import pannel from '../Assets/card.png'
 import avatar from '../Assets/avatar.png'
 import { UserContext } from '../Usercontext'
+import { useNavigate } from 'react-router-dom'
 
 function Header() {
   const [showSearchBox, setShowbox] = useState(false)
@@ -37,6 +38,12 @@ function Header() {
     checkRole()
   }, [])
 
+  const navigate = useNavigate()
+  const handlelogout = () => {
+    localStorage.clear()
+    navigate('/login')
+  }
+
   return (
     <div className='sticky top-0 bg-white z-10'>
       {showSearchBox ? (
@@ -60,21 +67,16 @@ function Header() {
         <div className='shadow'>
           <div className='flex justify-between items-center px-40 h-28 '>
             <div className='flex items-center gap-6 '>
-              <a href='/'>
+              <a href='/home'>
                 <img className='w-14' src={logo} alt='Logo' />
               </a>
               <a
-                href='/'
+                href='/home'
                 className='hover:underline focus:underline focus:font-normal font-thin sticky px-2 hover:scale-110'
               >
                 Home
               </a>
-              <a
-                href='/'
-                className='hover:underline focus:underline focus:font-normal font-thin sticky px-2 hover:scale-110'
-              >
-                Catalogue
-              </a>
+
               <a
                 href='/'
                 className='hover:underline focus:underline focus:font-normal font-thin sticky px-2 hover:scale-110'
@@ -95,11 +97,14 @@ function Header() {
                 className='w-8 hover:scale-110 hover:cursor-pointer'
                 alt='Search Icon'
               />
-              <img
-                src={pannel}
-                className='w-8 hover:scale-110 hover:cursor-pointer'
-                alt='Panel Icon'
-              />
+              <a href='/panier'>
+                <img
+                  src={pannel}
+                  className='w-8 hover:scale-110 hover:cursor-pointer'
+                  alt='Panel Icon'
+                />
+              </a>
+
               <div
                 onMouseEnter={() => setToggle(!toggleDropDwn)}
                 onMouseLeave={() => setToggle(!toggleDropDwn)}
@@ -150,6 +155,7 @@ function Header() {
                     <div className='py-1'>
                       <a
                         href='#'
+                        onClick={handlelogout}
                         className='block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white'
                       >
                         Sign out

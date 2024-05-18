@@ -1,41 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import Storecard from '../Components/Storecard'
-import Header from '../Components/Header'
+import React, { useEffect, useState } from 'react';
+import Storecard from '../Components/Storecard';
 
 function Storespage() {
-  const [data, setData] = useState([])
+  const [data, setData] = useState([]);
 
   useEffect(() => {
-    async function fetchStores() {
-      try {
-        const response = await axios.get(
-          `http://localhost:3000/Boutique/getBoutique`,
-        )
-        console.log('res', response.data)
-        setData(response.data)
-      } catch (error) {
-        console.error('Error fetching stores:', error)
-      }
-    }
-    fetchStores()
-  }, [])
+    // Simulate fetching data
+    const simulatedData = [
+      { id: 1, name: 'Store Name 1', description: 'Description 1', image: 'path_to_image_1' },
+      { id: 2, name: 'Store Name 2', description: 'Description 2', image: 'path_to_image_2' },
+      { id: 2, name: 'Store Name 2', description: 'Description 2', image: 'path_to_image_2' },
+      { id: 2, name: 'Store Name 2', description: 'Description 2', image: 'path_to_image_2' },
+      { id: 2, name: 'Store Name 2', description: 'Description 2', image: 'path_to_image_2' },
+      { id: 2, name: 'Store Name 2', description: 'Description 2', image: 'path_to_image_2' },
+      { id: 2, name: 'Store Name 2', description: 'Description 2', image: 'path_to_image_2' },
+      { id: 2, name: 'Store Name 2', description: 'Description 2', image: 'path_to_image_2' }
+      // Add more store objects as needed
+    ];
+    setData(simulatedData);
+  }, []);
+
   return (
     <div>
-      <Header />
-      <div className='px-60 pt-8 '>
+      <div className='pt-8 px-60 '>
         <h1 className='text-4xl'>Boutiques</h1>
         <div className='grid grid-cols-4 gap-4'>
-          <Storecard />
-          <Storecard />
-          <Storecard />
-          <Storecard />
-          <Storecard />
-          <Storecard />
-          <Storecard />
-          <Storecard />
+          {data.map((store) => (
+            <Storecard key={store.id} store={store} />
+          ))}
         </div>
       </div>
     </div>
-  )
+  );
 }
-export default Storespage
+
+export default Storespage;

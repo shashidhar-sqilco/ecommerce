@@ -7,6 +7,7 @@ function GererUtilisateur() {
   const [singleUser, setUser] = useState({})
   const [option, setOption] = useState(false)
   const [role, setRole] = useState('')
+  const [boutiques, setBoutique] = useState({})
   const [input, setInput] = useState('')
 
   const handleInput = (event) => {
@@ -17,7 +18,7 @@ function GererUtilisateur() {
       e.title.toLowerCase().includes(input.toLowerCase()),
     )
 
-    setArticles(filteredArticles)
+    setData(filteredArticles)
   }
 
   useEffect(() => {
@@ -37,7 +38,21 @@ function GererUtilisateur() {
     setUser(userInfo)
     setEdit(true)
   }
-  console.log(data)
+
+  useEffect(() => {
+    async function fetchStores() {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/Boutique/getBoutique`,
+        )
+        console.log('resboutique', response.data)
+        setBoutique(response.data)
+      } catch (error) {
+        console.error('Error fetching stores:', error)
+      }
+    }
+    fetchStores()
+  }, [])
 
   return (
     <div>
@@ -56,6 +71,7 @@ function GererUtilisateur() {
                   <div class='absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none'></div>
                   <input
                     type='text'
+                    onChange={(e) => handleInput(e)}
                     id='simple-search'
                     class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                     placeholder='Search Users...'
@@ -154,13 +170,14 @@ function GererUtilisateur() {
               <h4 className='text-2xl font-semibold'>Affecter une Boutique:</h4>
               <form class='max-w-sm mx-auto'>
                 <select
-                  onChange={(e) => setRole(e.target.value)}
+                  // onChange={fetchStores}
                   id='countries'
                   class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
                 >
                   <option selected>Choisir une boutique</option>
-                  <option value='User'>User</option>
-                  <option value='Responsable'>Responsable</option>
+                  {boutiques.map((store) => (
+                    <option value={store.name}>{store.name}</option>
+                  ))}
                 </select>
               </form>
             </div>

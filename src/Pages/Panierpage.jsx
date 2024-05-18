@@ -6,13 +6,14 @@ import PanierProduct from '../Components/PanierProduct'
 function Panierpage() {
   return (
     <div>
-      <OfferBarTop />
-      <Header />
+      
       <div className='flex justify-between mx-56 mt-20'>
         <h1 className='text-4xl bold'>Votre panier</h1>
-        <p className='underline text-gray-500 '>Continuer les achats</p>
+        <p className='text-gray-500 underline '>
+          <a href='/stores'>Continuer les achats</a>
+        </p>
       </div>
-      <div className='mx-56 mt-8 grid grid-cols-4 text-gray-400 text-sm'>
+      <div className='grid grid-cols-4 mx-56 mt-8 text-sm text-gray-400'>
         <div>Produit</div>
         <div></div>
         <div>Quantité</div>
@@ -26,14 +27,14 @@ function Panierpage() {
       </div>
 
       <hr className='mx-56 mt-4' />
-      <div className='flex flex-col mx-56 mt-12 float-right'>
-        <div className='flex flex-row gap-4 justify-end'>
+      <div className='flex flex-col float-right mx-56 mt-12'>
+        <div className='flex flex-row justify-end gap-4'>
           <div>Total estimé</div>
           <div>89.000 DT</div>
         </div>
         <div>
-          <button className=' mt-8 w-96 h-12 border border-black hover:scale-102 bg-black text-white hover:shadow-md'>
-            Proceder au paiment
+          <button className='h-12 mt-8 text-white bg-black border border-black w-96 hover:scale-102 hover:shadow-md'>
+            <a href='/paiment'> Proceder au paiment</a>
           </button>
         </div>
       </div>

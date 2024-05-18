@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 function QuantityButtonComponent() {
-  let [quantity, setQuantity] = useState(0)
+  let [quantity, setQuantity] = useState(1)
 
   function increment() {
     setQuantity((quantity += 1))

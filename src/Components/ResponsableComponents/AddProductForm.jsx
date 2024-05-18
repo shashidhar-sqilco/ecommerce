@@ -84,8 +84,8 @@ function AddPfroductForm() {
   }
   return (
     <div className=''>
-      <div className=' bg-white'>
-        <h1 className='text-2xl font-bold mb-8'>Ajouter un Produit</h1>
+      <div className='bg-white '>
+        <h1 className='mb-8 text-2xl font-bold'>Ajouter un Produit</h1>
         <form id='form'>
           <div className='relative z-0 w-40 mb-5'>
             <input
@@ -95,15 +95,15 @@ function AddPfroductForm() {
               onChange={handleInputChange}
               placeholder=' '
               required
-              className='pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200'
+              className='block w-full px-0 pt-3 pb-2 mt-0 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-black'
             />
             <label
               for='name'
-              className='absolute duration-300 top-3 -z-1 origin-0 text-gray-500'
+              className='absolute text-gray-500 duration-300 top-3 -z-1 origin-0'
             >
               Nom du produit
             </label>
-            <span className='text-sm text-red-600 hidden' id='error'>
+            <span className='hidden text-sm text-red-600' id='error'>
               Name is required
             </span>
           </div>
@@ -115,15 +115,15 @@ function AddPfroductForm() {
               placeholder=' '
               value={formData.description}
               onChange={handleInputChange}
-              className='pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200'
+              className='block w-full px-0 pt-3 pb-2 mt-0 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-black'
             />
             <label
               for='email'
-              className='absolute duration-300 top-3 -z-1 origin-0 text-gray-500'
+              className='absolute text-gray-500 duration-300 top-3 -z-1 origin-0'
             >
               Description
             </label>
-            <span className='text-sm text-red-600 hidden' id='error'>
+            <span className='hidden text-sm text-red-600' id='error'>
               Description is required
             </span>
           </div>
@@ -135,15 +135,15 @@ function AddPfroductForm() {
               name='expediteur'
               value={formData.expediteur}
               onChange={handleInputChange}
-              className='pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200'
+              className='block w-full px-0 pt-3 pb-2 mt-0 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-black'
             />
             <label
               for='password'
-              className='absolute duration-300 top-3 -z-1 origin-0 text-gray-500'
+              className='absolute text-gray-500 duration-300 top-3 -z-1 origin-0'
             >
               Expediteur
             </label>
-            <span className='text-sm text-red-600 hidden' id='error'>
+            <span className='hidden text-sm text-red-600' id='error'>
               Expediteur is required
             </span>
           </div>
@@ -161,11 +161,11 @@ function AddPfroductForm() {
               />
               <label
                 for='date'
-                className='absolute duration-300 top-3 -z-1 origin-0 text-gray-500'
+                className='absolute text-gray-500 duration-300 top-3 -z-1 origin-0'
               >
                 stock
               </label>
-              <span className='text-sm text-red-600 hidden' id='error'>
+              <span className='hidden text-sm text-red-600' id='error'>
                 stock is required
               </span>
             </div>
@@ -177,15 +177,15 @@ function AddPfroductForm() {
                 onChange={handleInputChange}
                 placeholder=' '
                 onclick="this.setAttribute('type', 'time');"
-                className='pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200'
+                className='block w-full px-0 pt-3 pb-2 mt-0 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-black'
               />
               <label
                 for='time'
-                className='absolute duration-300 top-3 -z-1 origin-0 text-gray-500'
+                className='absolute text-gray-500 duration-300 top-3 -z-1 origin-0'
               >
                 categorie
               </label>
-              <span className='text-sm text-red-600 hidden' id='error'>
+              <span className='hidden text-sm text-red-600' id='error'>
                 Time is required
               </span>
             </div>
@@ -198,18 +198,18 @@ function AddPfroductForm() {
               value={formData.price}
               onChange={handleInputChange}
               placeholder=' '
-              className='pt-3 pb-2 pl-5 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200'
+              className='block w-full px-0 pt-3 pb-2 pl-5 mt-0 bg-transparent border-0 border-b-2 border-gray-200 appearance-none focus:outline-none focus:ring-0 focus:border-black'
             />
             <div className='absolute top-0 left-0 mt-3 ml-1 text-gray-400'>
               Dt
             </div>
             <label
               for='money'
-              className='ml-4 absolute duration-300 top-3 left-5 -z-1 origin-0 text-gray-500'
+              className='absolute ml-4 text-gray-500 duration-300 top-3 left-5 -z-1 origin-0'
             >
               Prix
             </label>
-            <span className='text-sm text-red-600 hidden' id='error'>
+            <span className='hidden text-sm text-red-600' id='error'>
               Prix est necessaire
             </span>
           </div>
@@ -236,7 +236,7 @@ function AddPfroductForm() {
             id='button'
             type='button'
             onClick={handleSubmit}
-            className='w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-blue-400 hover:bg-blue-500 hover:shadow-lg focus:outline-none'
+            className='w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear bg-blue-400 rounded-lg shadow outline-none hover:bg-blue-500 hover:shadow-lg focus:outline-none'
           >
             Ajouter au boutique
           </button>
